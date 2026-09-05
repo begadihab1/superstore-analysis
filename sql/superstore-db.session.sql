@@ -1,0 +1,10 @@
+CREATE TABLE superstore_raw (order_id VARCHAR(20), order_date DATE, 
+                            ship_date DATE, ship_mode VARCHAR(50),
+                            customer_name VARCHAR(100), segment VARCHAR(50),
+                            state VARCHAR(100), country VARCHAR(100),
+                            market VARCHAR(50), region VARCHAR(50),
+                            product_id VARCHAR(20), category VARCHAR(50),
+                            sub_category VARCHAR(50), product_name VARCHAR(200),
+                            sales NUMERIC(10,2), quantity INTEGER, discount NUMERIC(5,2),
+                            profit NUMERIC(10,2), shipping_cost NUMERIC(10,2),
+                            order_priority VARCHAR(20), year INTEGER)
