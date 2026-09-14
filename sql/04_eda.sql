@@ -31,8 +31,8 @@ SELECT
     SUM(profit) AS sum_profit,
     ROUND(AVG(profit), 2) AS avg_profit
 FROM superstore_cleaned
-GROUP BY year, number_months
-ORDER BY year, number_months;
+GROUP BY year, month
+ORDER BY year, month;
 
 -- Exploring the numbers with products, market and countries
 SELECT 
