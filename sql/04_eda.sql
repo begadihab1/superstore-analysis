@@ -16,7 +16,7 @@ SELECT
 FROM superstore_cleaned;
 
 -- Years and Orders
-SELECT year, COUNT(*) AS orders
+SELECT year, COUNT(DISTINCT order_id) AS orders
 FROM superstore_cleaned
 GROUP BY year
 ORDER BY year;
@@ -38,17 +38,18 @@ ORDER BY year, month;
 SELECT 
     year,
     category, 
-    COUNT(*) AS orders, 
+    COUNT(DISTINCT order_id) AS orders, 
     SUM(sales) AS sum_sales,
     SUM(profit) AS sum_profit
 FROM superstore_cleaned
 GROUP BY year, category
 ORDER BY year, sum_profit DESC;
 
+SELECT category, COUNT(DISTINCT order_id) FROM superstore_cleaned GROUP BY category;
 
 SELECT 
     market,
-    COUNT(*) AS orders,
+    COUNT(DISTINCT order_id) AS orders,
     SUM(sales) AS sum_sales,
     SUM(profit) AS sum_profit
 FROM superstore_cleaned
@@ -58,7 +59,7 @@ ORDER BY SUM(sales) DESC;
 SELECT
     market,
     category,
-    COUNT(*) AS orders,
+    COUNT(DISTINCT order_id) AS orders,
     SUM(sales) AS sum_sales,
     SUM(profit) AS sum_profit
 FROM superstore_cleaned
@@ -78,10 +79,10 @@ LIMIT 10;
 SELECT 
     market,
     category,
-    COUNT(*) AS orders,
+    COUNT(DISTINCT order_id) AS orders,
     ROUND(
-        COUNT(*) * 100.0
-        / SUM(COUNT(*)) OVER (PARTITION BY market),
+        COUNT(DISTINCT order_id) * 100.0
+        / SUM(COUNT(DISTINCT order_id)) OVER (PARTITION BY market),
         2
     ) AS orders_perc
 FROM superstore_cleaned
@@ -90,12 +91,12 @@ GROUP BY market, category;
 SELECT
     country,
     category,
-    COUNT(*) AS orders,
+    COUNT(DISTINCT order_id) AS orders,
     ROUND(
-        COUNT(*) * 100.0
-        / SUM(COUNT(*)) OVER(PARTITION BY country),
+        COUNT(DISTINCT order_id) * 100.0
+        / SUM(COUNT(DISTINCT order_id)) OVER(PARTITION BY country),
         2
-    ) AS category_perc
+    ) AS category_order_pct
 FROM superstore_cleaned
 WHERE country IN ('United States', 'Canada', 'United Kingdom', 'China')
 GROUP BY country, category;
@@ -113,7 +114,7 @@ ORDER BY category, sum_sales;
 
 SELECT 
     ROUND(discount, 2) AS discount_level,
-    COUNT(*),
+    COUNT(DISTINCT order_id) AS orders,
     AVG(profit) AS avg_profit
 FROM superstore_cleaned
 GROUP BY ROUND(discount, 2)
