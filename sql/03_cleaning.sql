@@ -71,7 +71,8 @@ SELECT COUNT(*)
 FROM superstore_cleaned
 WHERE sales <= 0;
 
--- Removing rows with zero or negative values
+-- Remove records with zero or negative sales because they
+-- cannot contribute to sales-based profitability analysis.
 DELETE FROM superstore_cleaned
 WHERE sales <= 0;
 
