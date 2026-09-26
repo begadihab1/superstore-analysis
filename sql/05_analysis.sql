@@ -2,7 +2,7 @@
 SELECT
     category,
     sub_category,
-    COUNT(*) AS orders,
+    COUNT(DISTINCT order_id) AS orders,
     SUM(sales) AS total_sales,
     SUM(profit) AS total_profit,
     ROUND(SUM(profit) / NULLIF(SUM(sales), 0) * 100, 2) AS profit_margin_pct
@@ -24,7 +24,7 @@ SELECT
     WHEN discount <= 0.4 THEN '31-40%'
     WHEN discount <= 0.5 THEN '41-50%'
     ELSE '50%+' END AS discount_bucket,
-    COUNT(*) AS orders,
+    COUNT(DISTINCT order_id) AS orders,
     ROUND(AVG(profit), 2) AS avg_profit,
     ROUND(SUM(profit) / NULLIF(SUM(sales), 0) * 100, 2) AS profit_margin_pct
 FROM superstore_cleaned
@@ -34,6 +34,7 @@ ORDER BY discount_bucket;
 -- some products start to generate losses, and at discount levels above 30%, most products
 -- are operating at a loss. This highlights that discounts are not always beneficial and can
 -- quickly erode profitability if not tightly controlled.
+-- Higher discount levels are associated with lower profitability in this dataset.
 
 -- Sub-category and discount sensitivity:
 SELECT
@@ -45,7 +46,7 @@ SELECT
     WHEN discount <= 0.4 THEN '31-40%'
     WHEN discount <= 0.5 THEN '41-50%'
     ELSE '50%+' END AS discount_bucket,
-    COUNT(*) AS orders,
+    COUNT(DISTINCT order_id) AS orders,
     SUM(sales) AS total_sales,
     ROUND(AVG(profit), 2) AS avg_profit,
     ROUND(SUM(profit) / NULLIF(SUM(sales), 0) * 100, 2) AS profit_margin_pct
@@ -56,8 +57,11 @@ ORDER BY discount_bucket, avg_profit DESC;
 -- begins to fall sharply, which explains why Tables are the only sub-category with negative
 -- total profit. This suggests that Table pricing and discount strategy should be optimized
 -- to keep discounts low and avoid margin compression.
--- Market/Region Performance
+-- Tables generate relatively high sales but have negative total profit.
+-- Their profitability deteriorates substantially at higher discount levels,
+-- suggesting that discounting and pricing warrant further investigation.
 
+-- Market/Region Performance
 SELECT 
     market,
     region,
@@ -68,9 +72,8 @@ FROM superstore_cleaned
 GROUP BY market, region
 ORDER BY profit_margin_pct DESC;
 
-SELECT market, region, COUNT(*) AS orders FROM superstore_cleaned GROUP BY market, region ORDER BY orders ASC;
+SELECT market, region, COUNT(DISTINCT order_id) AS orders FROM superstore_cleaned GROUP BY market, region ORDER BY orders ASC;
 -- The EU market has the highest sales volume and the highest total profit, making it the
--- strongest region in absolute terms. Canada has the highest profit margin percentage, but
--- its lower order volume suggests that its stronger margin is driven by a smaller, more
--- selective customer base rather than scale. This indicates that growth strategies should
--- be tailored by region: scale in EU and margin protection in Canada.
+-- strongest region in absolute terms.
+-- Canada has the highest profit margin percentage,
+-- but its sales and order volume are substantially lower than the larger markets.
