@@ -7,7 +7,7 @@ CREATE VIEW vw_category_profitability AS
 SELECT
     category,
     sub_category,
-    COUNT(*) AS orders,
+    COUNT(DISTINCT order_id) AS orders,
     SUM(sales) AS total_sales,
     SUM(profit) AS total_profit,
     ROUND(SUM(profit) / NULLIF(SUM(sales), 0) * 100, 2) AS profit_margin_pct
@@ -25,7 +25,7 @@ SELECT
         WHEN discount <= 0.4 THEN '31-40%'
         WHEN discount <= 0.5 THEN '41-50%'
         ELSE '50%+' END AS discount_bucket,
-    COUNT(*) AS orders,
+    COUNT(DISTINCT order_id) AS orders,
     ROUND(AVG(profit), 2) AS avg_profit,
     ROUND(SUM(profit) / NULLIF(SUM(sales), 0) * 100, 2) AS profit_margin_pct
 FROM superstore_cleaned
@@ -43,7 +43,7 @@ SELECT
         WHEN discount <= 0.4 THEN '31-40%'
         WHEN discount <= 0.5 THEN '41-50%'
         ELSE '50%+' END AS discount_bucket,
-    COUNT(*) AS orders,
+    COUNT(DISTINCT order_id) AS orders,
     SUM(sales) AS total_sales,
     ROUND(AVG(profit), 2) AS avg_profit,
     ROUND(SUM(profit) / NULLIF(SUM(sales), 0) * 100, 2) AS profit_margin_pct
@@ -56,7 +56,7 @@ CREATE VIEW vw_market_region_performance AS
 SELECT
     market,
     region,
-    COUNT(*) AS orders,
+    COUNT(DISTINCT order_id) AS orders,
     SUM(sales) AS total_sales,
     SUM(profit) AS total_profit,
     ROUND(SUM(profit) / NULLIF(SUM(sales), 0) * 100, 2) AS profit_margin_pct
