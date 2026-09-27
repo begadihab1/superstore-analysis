@@ -1,4 +1,11 @@
 # Superstore Sales & Profitability Analysis
+
+
+https://github.com/user-attachments/assets/440a747f-bc6b-40a8-97c9-c7033c87eb30
+
+
+
+
 [📽️Watch the Dashboard Walkthrough](record/powerbi_dashboard_walkthrough.mp4)
 ## 📊 Project Overview
 
