@@ -149,7 +149,7 @@ Interactive Dashboard
 - Interactive filtering
 - Drill-through analysis
 
-[Superstore Analysis Dashboard](powerbi/superstore_analysis_dashboard.pbix)
+📊[Superstore Analysis Dashboard](powerbi/superstore_analysis_dashboard.pbix)
 
 ---
 
