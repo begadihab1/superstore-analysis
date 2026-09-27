@@ -47,6 +47,18 @@ Interactive Dashboard
 
 ---
 
+| File                   | Purpose                                                |
+| ---------------------- | ------------------------------------------------------ |
+| `01_create_tables.sql` | Creates the raw landing table                          |
+| `02_import_date.sql`   | Imports the source CSV into PostgreSQL                 |
+| `03_cleaning.sql`      | Cleans, converts, validates, and standardizes the data |
+| `04_eda.sql`           | Performs exploratory data analysis                     |
+| `05_analysis.sql`      | Answers the main business questions                    |
+| `06_views.sql`         | Defines reusable analytical SQL views                  |
+
+
+---
+
 ## The cleaning process included:
 
 - Converting date fields into proper date types
