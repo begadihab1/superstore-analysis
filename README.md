@@ -47,6 +47,7 @@ Interactive Dashboard
 
 ---
 
+## SQL workflow
 | File                   | Purpose                                                |
 | ---------------------- | ------------------------------------------------------ |
 | `01_create_tables.sql` | Creates the raw landing table                          |
