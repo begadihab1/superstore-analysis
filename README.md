@@ -1,5 +1,5 @@
 # Superstore Sales & Profitability Analysis
-[📽️Watch the Dashboard Walkthrough](record/powerbi_dashboard_walkthrough.mp4.mp4)
+[📽️Watch the Dashboard Walkthrough](record/powerbi_dashboard_walkthrough.mp4)
 ## 📊 Project Overview
 
 This project analyzes Superstore sales data to understand profitability, discounting behavior, product performance, and regional/market performance.
