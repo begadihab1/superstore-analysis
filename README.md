@@ -60,8 +60,22 @@ Interactive Dashboard
 
 ---
 
-## The cleaning process included:
-
+## 🧹 Data Preparation
+### The raw dataset contains transactional sales information including:
+- Order and shipping dates
+- Customers
+- Countries and markets
+- Regions
+- Categories and sub-categories
+- Products
+- Sales
+- Quantity
+- Discount
+- Profit
+- Shipping cost
+- Shipping mode
+- Order priority
+### The cleaning process included:
 - Converting date fields into proper date types
 - Converting numeric fields from text into numeric values
 - Removing formatting characters from numeric fields
