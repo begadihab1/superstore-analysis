@@ -134,7 +134,7 @@ Interactive Dashboard
 
 ## 📊 Power BI Dashboard
 ### The Power BI dashboard provides an interactive view of the analysis, including:
--Executive KPIs
+- Executive KPIs
 - Sales and profit trends
 - Category and sub-category performance
 - Market and regional performance
@@ -142,7 +142,7 @@ Interactive Dashboard
 - Interactive filtering
 - Drill-through analysis
 
-(Power BI Dashboard)[powerbi/superstore_analysis_dashboard.pbix]
+(Power BI Dashboard)[superstore_analysis_dashboard.pbix]
 
 ---
 
@@ -158,4 +158,4 @@ Interactive Dashboard
 ---
 
 ## 👤 About
-**This project is part of my data analytics portfolio and demonstrates my practical experience working with SQL, PostgreSQL, Power BI, data cleaning, exploratory analysis, and business-focused visualization.**
+**This project is part of my data analytics portfolio and demonstrates my practical experience working with PostgreSQL, Power BI, data cleaning, exploratory analysis, and business-focused visualization.**
