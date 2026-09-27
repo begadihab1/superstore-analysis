@@ -1,4 +1,59 @@
-# What are the Problems to Solve
-- Which categories/sub-categories are profitable VS losing money?
-- Does discounting help or hurt profit, and where's the tipping point?
-- Which markets/regions underperform despite high sales volume?
+# Superstore Sales & Profitability Analysis
+
+## 📊 Project Overview
+
+This project analyzes Superstore sales data to understand profitability, discounting behavior, product performance, and regional/market performance.
+
+The project combines **PostgreSQL** for data cleaning and analysis with **Power BI** for interactive business intelligence and dashboarding.
+
+The goal was to transform raw transactional data into actionable insights that could support better decisions around product profitability, discount strategy, and market performance.
+
+---
+
+## 🎯 Business Questions
+
+The analysis focuses on three main business questions:
+
+1. Which categories and sub-categories are profitable versus loss-making?
+2. Does discounting help or hurt profitability, and where does profitability begin to deteriorate?
+3. Which markets and regions underperform despite generating high sales volume?
+
+---
+
+## 🛠️ Tools & Technologies
+
+- **SQL / PostgreSQL** — data loading, cleaning, transformation, exploratory analysis, and business analysis
+- **Power BI** — interactive dashboard, KPIs, filtering, drill-through analysis, and visual storytelling
+- **Git & GitHub** — version control and project documentation
+
+---
+## 🔄 Project Workflow
+
+```text
+Raw CSV
+   ↓
+PostgreSQL
+   ↓
+Data Cleaning & Validation
+   ↓
+Exploratory Data Analysis
+   ↓
+Business Analysis
+   ↓
+Power BI
+   ↓
+Interactive Dashboard
+
+---
+
+## The cleaning process included:
+
+- Converting date fields into proper date types
+- Converting numeric fields from text into numeric values
+- Removing formatting characters from numeric fields
+- Trimming inconsistent product names
+- Standardizing inconsistent state names
+- Checking for invalid dates
+- Checking for invalid sales values
+- Removing records with zero or negative sales for the profitability analysis
+- Validating the resulting dataset
