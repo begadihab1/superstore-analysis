@@ -29,9 +29,9 @@ The analysis focuses on three main business questions:
 
 ## 🛠️ Tools & Technologies
 
-- **SQL / PostgreSQL** — data loading, cleaning, transformation, exploratory analysis, and business analysis
-- **Power BI** — interactive dashboard, KPIs, filtering, drill-through analysis, and visual storytelling
-- **Git & GitHub** — version control and project documentation
+- **SQL / PostgreSQL**: data loading, cleaning, transformation, exploratory analysis, and business analysis
+- **Power BI**: interactive dashboard, KPIs, filtering, drill-through analysis, and visual storytelling
+- **Git & GitHub**: version control and project documentation
 
 ---
 ## 🔄 Project Workflow
